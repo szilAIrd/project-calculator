@@ -1,0 +1,61 @@
+function operate(operator){
+    switch(operator){
+        case 'add':
+            return add(a,b)
+        break
+        case 'subtract':
+        break
+        case 'multiply':
+        break        
+        case 'divide':
+        break        
+    }
+}
+
+function add(){}
+
+function subtract(){}
+
+function multiply(){}
+
+function divide(){}
+
+function display(e){
+    const display = document.getElementsByClassName('display')[0];
+    //  Check the status of the variables a,b and operator
+    if  (a==null){
+        // Check if the button pressed is a number or an operator: if a number use the value
+        if (!isNaN(parseFloat(e.currentTarget.textContent)) && isFinite(e.currentTarget.textContent) ){
+            a=e.currentTarget.textContent;
+        }
+        else if  (typeof e.currentTarget=== 'string'){
+            alert("Select a number first!")
+        } 
+    }
+    //  Check if there is already an operator selected
+    else if (operator===''){
+        if (!isNaN(parseFloat(e.currentTarget.textContent)) && isFinite(e.currentTarget.textContent) ){
+            alert("Select an operator!")
+            // a=e.currentTarget.textContent;
+        }
+        else if  (typeof e.currentTarget=== 'string'){
+            operator = e.currentTarget.textContent;
+        }
+    }
+    return display.textContent = e.currentTarget.textContent;
+
+}
+
+let a = null;
+let b = null;
+let operator = '';
+
+
+
+
+const buttons = document.querySelectorAll('div.button');
+buttons.forEach((button) => {button.addEventListener("click",display)})
+// buttons.addEventListener("click",display);
+
+// const button1 = document.getElementById("1")
+// button1.addEventListener("click",display)
